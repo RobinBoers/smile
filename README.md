@@ -1,36 +1,37 @@
 # Smile
 
-Small lib for converting emoji mappers to emoji characters, like in Slack messages:
+Small library for converting emoji shortnames to emoji characters, like in Discord messages:
 
 ```elixir
-import Smile
-convert_text("my emoji game is :ok_hand_sign:")
-# > "my emoji game is 👌"
+Smile.convert_text("LMAO :joy:")
+# > "LMAO 😂"
 ```
 
-This is just an experiment to examine metaprogramming in Elixir, there's known limitations:
-    
-1. Emojis in the middle of other don't work, ex.: ":woo:pile_of_poo:hoo:" would not convert the `:pile_of_poo:` in the middle
+This is a fork of the [original project](https://github.com/goulashify/smile) that uses Discord-style shortcodes instead of the full unicode "CLDR Short Name".  
+For example, `:face_with_tears_of_joy:` is the official unicode-approved short name, but this fork uses `:joy:` instead.
 
-Ideas, suggestions, contributions welcome, just drop me a line at [hello@danielgulyas.me](hello@danielgulyas.me)
+There are some known issues:
+
+1. Emojis in the middle of other don't work, ex.: ":woo:poop:hoo:" would not convert the `:poop:` in the middle.
 
 ## Installation
 
-Available in Hex, the package can be installed as:
+Available via GitHub, the package can be installed as:
 
-  1. Add `smile` to your list of dependencies in `mix.exs`:
+1. Add `:smile` to your list of dependencies in `mix.exs`:
 
-    ```elixir
+   ```elixir
     def deps do
-      [{:smile, "~> 0.1.0"}]
+      [
+        {:smile, github: "RobinBoers/smile"}
+      ]
     end
-    ```
+   ```
 
-  2. Ensure `smile` is started before your application:
+2. Ensure `smile` is started before your application:
 
-    ```elixir
+   ```elixir
     def application do
       [applications: [:smile]]
     end
-    ```
-
+   ```
