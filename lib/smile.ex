@@ -38,7 +38,7 @@ defmodule Smile do
   @doc """
   Converts all emoji shortnames in a string into unicode characters.
   """
-  def convert_text(text) do
+  def convert_text(text) when is_binary(text) do
     Regex.replace(~r/:[a-z|0-9|_]*:/, text, &convert_mapping_to_emoji/1)
   end
 end
