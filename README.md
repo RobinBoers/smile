@@ -12,7 +12,7 @@ For example, `:face_with_tears_of_joy:` is the official unicode-approved short n
 
 There are some known issues:
 
-1. Emojis in the middle of other don't work, ex.: ":woo:poop:hoo:" would not convert the `:poop:` in the middle.
+1. Emojis in the middle of other don't work, ex. `:woo:poop:hoo:` would not convert the `:poop:` in the middle.
 
 ## Installation
 
